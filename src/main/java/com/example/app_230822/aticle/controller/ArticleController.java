@@ -4,6 +4,7 @@ import com.example.app_230822.aticle.dto.Article;
 import com.example.app_230822.aticle.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,9 +16,10 @@ public class ArticleController {
     private final ArticleService articleService;
 
     @GetMapping("article/list")
-    @ResponseBody
-    public String list() {
-        List<Article> Articles =  articleService.getArticles();
-        return "리스트페이지";
+    public String list(Model model) {
+        List<Article> articleList =  articleService.getArticles();
+
+        model.addAttribute("articleList", articleList);
+        return "article/list";
     }
 }
