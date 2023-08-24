@@ -2,7 +2,8 @@
 
 <div>
     <ul th:each="article : ${articleList}">
-        <li th:text="${article.id}"></li>
+        <a th:href="@{|/article/detail/${article.id}|}" th:text="${article.id}">
+        </a>
         <li th:text="${article.subject}"></li>
         <li th:text="${article.content}"></li>
     </ul>

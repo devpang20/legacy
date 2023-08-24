@@ -15,4 +15,10 @@ public class ArticleService {
     public List<Article> getArticles() {
         return articleRepository.getArticles();
     }
+
+    public Article getArticleById(Long id) {
+        Article article = this.articleRepository.getArticleById(id);
+
+        return article;
+    }
 }
